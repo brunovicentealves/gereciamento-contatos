@@ -1,6 +1,5 @@
-FROM openjdk:8-jre
-RUN mkdir app
-ARG JAR_FILE
-ADD /target/${JAR_FILE} /app/gerenciamento-contatos.jar
-WORKDIR /app
-ENTRYPOINT java -jar gerenciamento-contatos.jar
+FROM adoptopenjdk:11-jre-hotspot
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} gerenciamento-contatos.jar
+EXPOSE 8080
+ENTRYPOINT ["java","-jar","/gerenciamento-contatos.jar"]
