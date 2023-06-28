@@ -23,7 +23,7 @@ public class ContatoService {
 	
 	public String adcionarContato(ContatoDTO contato) {
 
-		logger.info("criado Contato com essas informações:{}", contato);
+		logger.info("Criando Contato com essas informações:{}", contato.toString());
 		
 		Contato responseContato =contatoRepository.save(new Contato(contato));
 		
@@ -37,15 +37,13 @@ public class ContatoService {
 
 		logger.info("Alterando contato id :{} , Contatos:{}", id, contato);
 
-		if (id == null) {
-			throw new ResourceBadRequestException("Não informou id do Contato");
-		}
+		validaIdContatoNull(id);
 		
 		buscarPorIdContatos(id);
 
 		Contato responseContato = contatoRepository.save(new Contato(contato, id));
 
-		logger.info("Alterado com sucesso as informações do Contato :{}",responseContato);
+		logger.info("Alterado com sucesso as informações do Contato :{}",responseContato.toString());
 
 		return new ContatoDTO(responseContato);
 
@@ -74,19 +72,33 @@ public class ContatoService {
 	}
 
 	public String deleteContato(Long id) {
-		logger.info("deletando usuario contato id:{}", id);
+		logger.info("Deletando Contato id:{}", id);
 
+		validaIdContatoNull(id);
+
+		Contato contato = buscarPorIdContatos(id);
+		
+		validaEnderecoVinculado(contato);
+		
+		contatoRepository.deleteById(id);
+
+		logger.info("Deletado com sucesso Contato id:{}", id);
+		
+		return "Deletado com sucesso o contato id :"+id;
+	}
+
+
+	private void validaIdContatoNull(Long id) {
 		if (id == null) {
 			throw new ResourceBadRequestException("Não informou id do Contato");
 		}
+	}
 
-		buscarPorIdContatos(id);
 
-		contatoRepository.deleteById(id);
-
-		logger.info("deletado com sucesso contato id:{}", id);
-		
-		return "Deletado com sucesso o contato id :"+id;
+	private void validaEnderecoVinculado(Contato contato) {
+		if(!contato.getEnderecos().isEmpty()) {
+			throw new ResourceBadRequestException("Não pode excluir contato , pois tem Endereços vinculados !");
+		}
 	}
 
 }
