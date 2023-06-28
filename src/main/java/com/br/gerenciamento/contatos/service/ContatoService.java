@@ -96,7 +96,7 @@ public class ContatoService {
 
 
 	private void validaEnderecoVinculado(Contato contato) {
-		if(!contato.getEnderecos().isEmpty()) {
+		if(!contato.getEnderecos().isEmpty() && contato.getEnderecos()!= null) {
 			throw new ResourceBadRequestException("Não pode excluir contato , pois tem Endereços vinculados !");
 		}
 	}

@@ -60,7 +60,7 @@ public class EnderecoController {
 
 		logger.info("Iniciando Deletar Enderecos por id ");
 
-		String messageResponse = service.deleteContato(enderecoId);
+		String messageResponse = service.deleteEndereco(enderecoId);
 
 		logger.info("Finalizando Deletar Enderecos por id ");
 

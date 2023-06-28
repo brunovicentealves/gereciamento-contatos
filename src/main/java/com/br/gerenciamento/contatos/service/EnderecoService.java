@@ -2,7 +2,6 @@ package com.br.gerenciamento.contatos.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class EnderecoService {
 
 	private static Logger logger = LoggerFactory.getLogger(EnderecoService.class);
 
-	public String adcionarEndereco(@Valid EnderecoDTO endereco, Long contatoId) {
+	public String adcionarEndereco( EnderecoDTO endereco, Long contatoId) {
 
 		Contato contato = service.buscarPorIdContatos(contatoId);
 
@@ -40,7 +39,7 @@ public class EnderecoService {
 		
 		List<Endereco> endereco = enderecoRepository.findByContato(contato);
 		
-		if(endereco.isEmpty()) {
+		if(endereco.isEmpty() || contato.getEnderecos()== null) {
 			throw new ResourceBadRequestException("Não tem endereços cadastrados para Contato id:"+contatoId);	
 		}
 		
@@ -60,7 +59,7 @@ public class EnderecoService {
 	}
 
 
-	public String deleteContato(Long enderecoId) {
+	public String deleteEndereco(Long enderecoId) {
 		
 		logger.info("deletando  Endereco id:{}", enderecoId);
 		

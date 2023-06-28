@@ -53,7 +53,7 @@ public class ControllerContatos {
 
 	@ApiOperation(value = "Alterar contato especifico.")
 	@PutMapping(value = "/alterar/{id}")
-	public ResponseEntity<?> alterarContato(@RequestBody ContatoDTO contato, @PathVariable Long id ) {
+	public ResponseEntity<?> alterarContato(@RequestBody @Valid ContatoDTO contato, @PathVariable Long id ) {
 
 		logger.info("Iniciando Alterar contatos ");
 		
