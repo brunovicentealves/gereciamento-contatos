@@ -1,10 +1,13 @@
 package com.br.gerenciamento.contatos.dtos;
 
-import lombok.Builder;
+import com.br.gerenciamento.contatos.model.Endereco;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class EnderecoDTO {
 	
 	private String rua;
@@ -18,6 +21,18 @@ public class EnderecoDTO {
 	private String cidade;
 	
 	private String cep;
+
+	public EnderecoDTO(Endereco endereco) {
+		super();
+		this.rua = endereco.getRua();
+		this.numero = endereco.getNumero();
+		this.bairro = endereco.getBairro();
+		this.estado = endereco.getEstado();
+		this.cidade = endereco.getCidade();
+		this.cep = endereco.getCep();
+	}
+	
+	
 	
 
 }

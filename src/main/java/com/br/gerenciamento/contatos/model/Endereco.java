@@ -7,12 +7,15 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import lombok.Builder;
+import com.br.gerenciamento.contatos.dtos.EnderecoDTO;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-@Builder
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="tb_endereco")
 public class Endereco {
 	
@@ -37,5 +40,20 @@ public class Endereco {
 	 @ManyToOne
 	 @JoinColumn(name = "contato_id")
 	 private Contato contato;
+
+
+	public Endereco(EnderecoDTO endereco, Contato contato) {
+		super();
+		this.rua = endereco.getRua();
+		this.numero = endereco.getNumero();
+		this.bairro = endereco.getBairro();
+		this.estado = endereco.getEstado();
+		this.cidade = endereco.getCidade();
+		this.cep = endereco.getCep();
+		this.contato = contato;
+	}
+	 
+	 
+	 
 
 }
