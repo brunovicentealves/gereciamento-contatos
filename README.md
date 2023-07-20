@@ -1,18 +1,38 @@
-📓# gereciamento-contatos
-### Gerenciamentos de  contato e seus endereços
 
-## Para informações sobre MicroServiço segue o swagger da aplicação:
-### https://gereciamento-contatos-production.up.railway.app/swagger-ui/index.html
+## Projeto  Gerenciamentos de  contato e seus endereços
 
+Prova Técnica para Vaga Java para Empresa Dimensa.
 
-💻 ## Projeto foi realizado o Deploy na plataforma **Railway** (https://railway.app/)
+Foi realizado uma Api-Rest para gerenciamento de contatos e seus endereços, foi desenvolvido em java 11 com Tecnologia Spring boot .
 
-### Projeto todo foi construido  com banco **H2**,depois para ambiente de produção  foi criado banco **MYSQL** no Railway.
+## Stack utilizada
 
 
+**Back-end:** Java, SpringBoot, Mysql,H2,Lombok,Docker,Junit,Mockito,Swagger.
 
-## link para ver se aplicação esta de pé no servidor:
-### https://gereciamento-contatos-production.up.railway.app/health
+
+## Deploy :
+
+Api-rest foi hospedado na plataforma na plataforma **Railway** (https://railway.app/) 
+
+## Documentação Swagger:
+
+https://gereciamento-contatos-production.up.railway.app/swagger-ui/index.html
+
+## Url da aplicação no Railway:
+
+https://gereciamento-contatos-production.up.railway.app
+
+## Url para verificar se aplicação esta ativada:
+
+https://gereciamento-contatos-production.up.railway.app/health
+
+
+## Autores
+
+- [@BrunoVicenteAlves](https://www.github.com/brunovicentealves)
+
+
 
 
 
