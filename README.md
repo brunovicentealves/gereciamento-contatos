@@ -13,7 +13,7 @@ Foi realizado uma Api-Rest para gerenciamento de contatos e seus endereços, foi
 
 ## Deploy :
 
-Api-rest foi hospedado na plataforma na plataforma **Railway** (https://railway.app/) 
+Api-rest foi hospedado na plataforma **Railway** (https://railway.app/) 
 
 ## Documentação Swagger:
 
