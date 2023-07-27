@@ -1,9 +1,5 @@
-FROM adoptopenjdk:11-jdk-hotspot
-
-WORKDIR /app
-
-COPY target/gerenciamento-contatos.jar /app/gerenciamento-contatos.jar
-
+FROM adoptopenjdk:11-jre-hotspot
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} gerenciamento-contatos.jar
 EXPOSE 8080
-
-CMD ["java", "-jar", "gerenciamento-contatos.jar"]
+ENTRYPOINT ["java","-jar","/gerenciamento-contatos.jar"]
