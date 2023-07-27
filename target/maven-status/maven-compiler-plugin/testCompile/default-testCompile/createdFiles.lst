@@ -1,0 +1,4 @@
+com\br\gerenciamento\contatos\testUtil\TestUtil.class
+com\br\gerenciamento\contatos\GerenciamentoContatosApplicationTests.class
+com\br\gerenciamento\contatos\service\ContatoServiceTests.class
+com\br\gerenciamento\contatos\service\EnderecoServiceTests.class
